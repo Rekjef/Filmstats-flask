@@ -2,13 +2,9 @@
 
 {% block body %}
     
-    <div class="back-img" style="background-image: url('https://image.tmdb.org/t/p/original/{{details.backdrop_path}}');">
-        <div class="back-img-cover"></div>
-    </div>
-    
     <div class='left-serials-info'>
         <img src="https://image.tmdb.org/t/p/original/{{details.poster}}" alt="">
-        <!-- <div><p><img src="{{ url_for('static', filename='img/flag.png') }}" alt="PL" width="20" height="20"><b style="font-size: 10px;">{{details.title}}</b></p></div> 
+        <!-- <div><p><img src="{{ url_for('static', filename='img/flag.png') }}" alt="PL" width="20" height="20"><b style="font-size: 10px;">{{details.title}}</b></p></div>
         <div class='streaming-platforms-title'><h5>Platformy:</h5></div>
         {% for platform in details.streamingPlatforms %}
             <div class="streaming-platform">

@@ -10,10 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      window.onload = function (){
-        console.log("asdsad");
-        document.getElementsByClassName('back-img')[0].style.setProperty("text-align", "center", "important");
-      }
+      //window.onload = function (){
+      //  console.log("asdsad");
+      //  document.getElementsByClassName('back-img')[0].style.setProperty("text-align", "center", "important");
+      //}
 
       $(function () {
           $("[rel='tooltip']").tooltip();
@@ -65,9 +65,10 @@
               </nav>
         </header>
         <main role="main">
-          <div class="flex-container" style="position: relative">
+          <div class="flex-container serial-container" style="background-image: url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/{{details.backdrop_path}}')">
+            <div class="back-img-cover"></div>
             {% block body %}
-            
+
             {% endblock %}
           </div>
         </main>
