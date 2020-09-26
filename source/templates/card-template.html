@@ -1,0 +1,28 @@
+{% extends '/html/index.html' %}
+
+{% block body %}
+    {% for movie in movies %}
+        <div class="flex-item cards">
+            <img src="https://image.tmdb.org/t/p/w500{{movie.poster}}"/>
+            <a href="/serials/{{movie.title}}" class="card-infobox">
+                <div class="cards-info">
+                    <p class="card-description"><b>{{movie.plot}}</b></p>
+                    <!--<p>Liczba sezonów: {{movie.totalSeasons}}</p>
+                    <p>Aktorzy: {{movie.actors}}</p>
+                    <p>Reżyser: {{movie.director}}</p> -->
+                </div>
+                <!-- <div class="flex-container">
+                    {% for genre in movie.genres %}
+                        <div class="genre btn-secondary">
+                            <p>{{ genre }}</p>
+                        </div>
+                    {% endfor %}
+                </div> -->
+            </a>
+            <div class="card-body">
+                <h5 class="text-left"><b>{{movie.title}}</b></h5>
+                <h5 class="text-left">{{movie.released}}</h5>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends '/html/serial.html' %}
+
+{% block body %}
+    
+    <div class="back-img" style="background-image: url('https://image.tmdb.org/t/p/original/{{details.backdrop_path}}');">
+        <div class="back-img-cover"></div>
+    </div>
+    
+    <div class='left-serials-info'>
+        <img src="https://image.tmdb.org/t/p/original/{{details.poster}}" alt="">
+        <!-- <div><p><img src="{{ url_for('static', filename='img/flag.png') }}" alt="PL" width="20" height="20"><b style="font-size: 10px;">{{details.title}}</b></p></div> 
+        <div class='streaming-platforms-title'><h5>Platformy:</h5></div>
+        {% for platform in details.streamingPlatforms %}
+            <div class="streaming-platform">
+                <img src="https://image.tmdb.org/t/p/original/{{platform.logo}}" alt="{{platform.name}}" height="40">
+            </div>
+        {% endfor %}-->
+    </div>
+    <div class='main-serials-info container-md'>
+        <div class="serial-title">
+            <h2 class="nomp"><b>{{details.titleOriginal}}</b> ({{details.released[:4]}})</h2>
+            <h6>Sezony: {{details.totalSeasons}}</h6>
+            <div class="flex-container genres-container">
+                {% for genreName in details.genres%}
+                    <div class="btn-secondary genre text-center">
+                        <p>{{genreName}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="serial-rating">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{details.ratings['rating']*10}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="rating-description" title="Glosów: {{details.ratings['votes']}}" rel="tooltip" data-placement="bottom"><p>Ocena: {{details.ratings['rating']}}/10</p></div>
+        </div>
+        <div class="serial-information">
+            <h4>Opis</h4>
+            <p>{{details.plot}}</p>
+        </div>
+        <div class="serial-directors">
+
+        </div>
+        <div class="serial-actors">
+            
+        </div>
+    </div>
+{% endblock %}

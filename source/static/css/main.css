@@ -1,0 +1,23 @@
+main{
+    margin: auto;
+    height: auto;
+    width: 80%;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-top: 20px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-item{
+    margin: 10px;
+}
+
+.footer{
+    clear: both !important;
+}
