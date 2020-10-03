@@ -1,6 +1,6 @@
 {% extends '/html/serial.html' %}
 
-{% block body %}
+{% block overview %}
     
     <div class='left-serials-info'>
         <img src="https://image.tmdb.org/t/p/original/{{details.poster}}" alt="">
@@ -15,10 +15,16 @@
     <div class='main-serials-info container-md'>
         <div class="serial-title">
             <h2 class="nomp"><b>{{details.titleOriginal}}</b> ({{details.released[:4]}})</h2>
-            <h6>Sezony: {{details.totalSeasons}}</h6>
+            <h6>
+                Sezony: {{details.totalSeasons}} 
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dot" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                </svg>
+                Odcinki: {{details.totalEpisodes}}
+            </h6>
             <div class="flex-container genres-container">
-                {% for genreName in details.genres%}
-                    <div class="btn-secondary genre text-center">
+                {% for genreName in details.genres %}
+                    <div class="genre badge text-center">
                         <p>{{genreName}}</p>
                     </div>
                 {% endfor %}
@@ -34,8 +40,41 @@
             <h4>Opis</h4>
             <p>{{details.plot}}</p>
         </div>
-        <div class="serial-directors">
+    </div>
+{% endblock %}
 
+{% block informations %}
+    <div class="streaming-platform-holder">
+        <div class='streaming-platforms-title'>
+            <h5>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-broadcast-pin" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 0 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM6 8a2 2 0 1 1 2.5 1.937V15.5a.5.5 0 0 1-1 0V9.937A2 2 0 0 1 6 8z"/>
+                </svg>
+                Platformy:
+            </h5>
+        </div>
+        {% for platform in details.streamingPlatforms %}
+            <div class="streaming-platform">
+                <img src="https://image.tmdb.org/t/p/original/{{platform.logo}}" alt="{{platform.name}}" height="40">
+            </div>
+        {% endfor %}
+    </div>
+    <div class="main-serials-info container-md">
+        <div class="serial-actors">
+            {% for actor in details.actors %}
+                <div class='actor-card'>
+                    <div class="flex-item cards">
+                        <img src="https://image.tmdb.org/t/p/w500{{actor['image_id']}}"/>
+                        <div class="card-body">
+                            <h5 class="text-left"><b>{{actor['name']}}</b></h5>
+                            <h5 class="text-left">{{actor['character_name']}}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="serial-actors">
+            
         </div>
         <div class="serial-actors">
             

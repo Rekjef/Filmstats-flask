@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/search.js') }}"></script>
     <title>Filmstats</title>
 </head>
@@ -45,13 +46,15 @@
                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0" action="buttonClick()">
-                    <input class="form-control mr-sm-2" id="inputURL" type="search" placeholder="Search" aria-label="Search">
-                    <input type="button" class="btn btn-outline-success my-2 my-sm-0"  onclick="buttonClick()"/>
+                    <input class="form-control mr-sm-2" id="inputURL" type="search" placeholder="Search" aria-label="Search"/>
+                    <input type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="buttonClick()"/>
                   </form>
                 </div>
               </nav>
         </header>
         <main role="main">
+          <input id="czytodziala" type="text" />
+          <div id="result">Start inputing...</div>
             <div class="flex-container">
               {% block body %}
               

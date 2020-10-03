@@ -3,9 +3,6 @@ main{
     height: auto;
     width: 100%;
 }
-#wrap{
-    height: 1000px;
-}
 .flex-container {
     display: flex;
     flex-wrap: wrap;

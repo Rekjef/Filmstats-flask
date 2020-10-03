@@ -3,24 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/serials.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      //window.onload = function (){
-      //  console.log("asdsad");
-      //  document.getElementsByClassName('back-img')[0].style.setProperty("text-align", "center", "important");
-      //}
-
-      $(function () {
-          $("[rel='tooltip']").tooltip();
-      });
-    </script>
-  
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
     <title>Filmstats</title>
 </head>
 
@@ -58,28 +45,22 @@
                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  <form class="form-inline my-2 my-lg-0" action="buttonClick()">
+                    <input class="form-control mr-sm-2" id="inputURL" type="search" placeholder="Search" aria-label="Search"/>
+                    <input type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="buttonClick()"/>
                   </form>
                 </div>
               </nav>
         </header>
         <main role="main">
-          <div class="flex-container serial-container" style="background-image: url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/{{details.backdrop_path}}')">
-            <div class="back-img-cover"></div>
-            {% block overview %}
-
-            {% endblock %}
-          </div>
-          <div class="flex-container">
-            {% block informations %}
-                
-            {% endblock %}
-          </div>
+            <div class="flex-container">
+              {% block results %}
+              
+              {% endblock %}
+            </div>
         </main>
 
-        <footer class="footer mt-auto py-3">
+        <footer class="bg-dark footer mt-auto">
             <div class="container">
                 <p class="text-center">Filip Michalak | 2020</p>
             </div>
