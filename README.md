@@ -1,2 +1,2 @@
 # Filmstats-flask
- responsive flask film site
+Resopsive site using BootStrap and Flask.
