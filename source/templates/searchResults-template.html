@@ -1,42 +1,47 @@
 {% extends '/html/search.html' %}
 
 {% block results %}
-    <div class="search-filters">
-        <p>test13212</p>
+    <div class="streaming-platform-holder">
+        <div class='streaming-platforms-title'>
+            <h5>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-broadcast-pin" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 0 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM6 8a2 2 0 1 1 2.5 1.937V15.5a.5.5 0 0 1-1 0V9.937A2 2 0 0 1 6 8z"/>
+                </svg>
+                Platformy:
+            </h5>
+        </div>
     </div>
-    <div class="search-results">
+    <div class="main-serials-info container-md">
         {% for result in results %}
-            <div class="result">
-                <div class='back-img-cover'></div>
-                <div class="left-section">
-                    <h2 class="nomp"><b>{{result.titleOriginal}}</b> ({{result.released[:4]}})</h2>
-                    <h6>
-                        Sezony: {{result.totalSeasons}} 
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dot" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                        </svg>
-                        Odcinki: {{result.totalEpisodes}}
-                    </h6>
-                    <div class="flex-container genres-container">
-                        {% for genreName in result.genres %}
-                            <div class="genre badge text-center">
-                                <p>{{genreName}}</p>
-                            </div>
-                        {% endfor %}
+            <div class="flex-container result">
+                <div class='thumbnail'>
+                    <img src="{{result.poster}}" alt="">
+                </div>
+                <div class='main-serials-info container-md'>
+                    <div class="serial-title">
+                        <h2 class="nomp"><b>{{result.titleOriginal}}</b> ({{result.released[:4]}})</h2>
+
+                        <div class="flex-container genres-container">
+                            {% for genreName in result.genres %}
+                                <div class="genre badge text-center" style="background-color: {{genreName['color']}};">
+                                    <p>{{genreName['name']}}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class="mid-section">
-                    <p>{{result.plot}}</p>
-                </div>
-                <div class="right-section">
                     <div class="serial-rating">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{details.ratings['rating']*10}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{result.ratings['rating']*10}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="rating-description" title="Glosów: {{details.ratings['votes']}}" rel="tooltip" data-placement="bottom"><p>Ocena: {{details.ratings['rating']}}/10</p></div>
+                        <div class="rating-description" title="Glosów: {{result.ratings['votes']}}" rel="tooltip" data-placement="bottom"><p>Ocena: {{result.ratings['rating']}}/10</p></div>
+                    </div>
+                    <div class="serial-information">
+                        <h4>Opis</h4>
+                        <p>{{result.plot}}</p>
                     </div>
                 </div>
             </div>
         {% endfor %}
+        </div>
     </div>
 {% endblock %}

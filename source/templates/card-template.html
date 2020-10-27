@@ -3,8 +3,8 @@
 {% block body %}
     {% for movie in movies %}
         <div class="flex-item cards">
-            <img src="https://image.tmdb.org/t/p/w500{{movie.poster}}"/>
-            <a href="/serials/{{movie.title}}" class="card-infobox">
+            <img src="{{movie.poster}}"/>
+            <a href="/serial/{{movie.title}}" class="card-infobox">
                 <div class="cards-info">
                     <p class="card-description"><b>{{movie.plot}}</b></p>
                     <!--<p>Liczba sezonów: {{movie.totalSeasons}}</p>

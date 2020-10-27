@@ -1,18 +1,13 @@
 function buttonClick(){
-    var url = document.getElementById("inputURL").value;
-    window.location = "/search/" + url;
+    var url = document.getElementById("searchValue").value;
+    alert("/search/" + url);
+    window.location.replace("/search/" + url);
 }
+var form = document.getElementById("search-bar");
 
-//creates a listener for when you press a key
-window.onkeyup = keyup;
-
-//creates a global Javascript variable
-var inputTextValue;
-
-function keyup(e) {
-    inputTextValue = e.target.value;
-    console.log(inputTextValue);
-    if (e.keyCode == 13) {
-        window.location = "http://www.myurl.com/search/" + inputTextValue;
-    }
-}
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var search = form.querySelector("input[type=search]");
+  search.value = "site:css-tricks.com " + search.value;
+  form.submit();
+});

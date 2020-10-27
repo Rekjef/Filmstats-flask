@@ -3,6 +3,9 @@ main{
     height: auto;
     width: 100%;
 }
+header{
+    background-color: #1c1d1e;
+}
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -19,4 +22,33 @@ main{
 
 .footer{
     clear: both !important;
+}
+.search-box{
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    width: auto;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+}
+.searchbox-btn{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+} 
+.genre{
+    background-color: tomato;
+    height: 20px;
+    margin-right: 4px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px 4px 22px 4px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.genres-container{
+    justify-content: left;
+    margin-bottom: 10px;
 }

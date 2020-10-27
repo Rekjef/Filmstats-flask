@@ -37,22 +37,6 @@
     margin: 0px !important;
     padding: 0px !important;
 }
-
-.genre{
-    background-color: tomato;
-    height: 20px;
-    margin-right: 4px;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-    padding: 5px 4px 22px 4px;
-    border-radius: 4px;
-    font-weight: 500;
-}
-.genres-container{
-    justify-content: left;
-    margin-bottom: 10px;
-}
 .rating-description{
     float: right;
     margin: 0;
@@ -106,3 +90,25 @@
     margin-bottom: 20px;
     z-index: 1;
 }
+.season{
+    background-color: #181818;
+    height: 80px;
+    text-align: justify;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(68, 68, 68);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.4) !important;
+    margin-bottom: 10px;
+}
+.season-informations{
+    float: left;
+    height: 100%;
+    max-width: 30%;
+}   
+.season-description{
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+    max-width: 70%;
+}   

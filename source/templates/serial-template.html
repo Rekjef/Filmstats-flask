@@ -1,16 +1,8 @@
 {% extends '/html/serial.html' %}
 
 {% block overview %}
-    
     <div class='left-serials-info'>
-        <img src="https://image.tmdb.org/t/p/original/{{details.poster}}" alt="">
-        <!-- <div><p><img src="{{ url_for('static', filename='img/flag.png') }}" alt="PL" width="20" height="20"><b style="font-size: 10px;">{{details.title}}</b></p></div>
-        <div class='streaming-platforms-title'><h5>Platformy:</h5></div>
-        {% for platform in details.streamingPlatforms %}
-            <div class="streaming-platform">
-                <img src="https://image.tmdb.org/t/p/original/{{platform.logo}}" alt="{{platform.name}}" height="40">
-            </div>
-        {% endfor %}-->
+        <img src="{{details.poster}}" alt="">
     </div>
     <div class='main-serials-info container-md'>
         <div class="serial-title">
@@ -24,8 +16,8 @@
             </h6>
             <div class="flex-container genres-container">
                 {% for genreName in details.genres %}
-                    <div class="genre badge text-center">
-                        <p>{{genreName}}</p>
+                    <div class="genre badge text-center" style="background-color: {{genreName['color']}};">
+                        <p>{{genreName['name']}}</p>
                     </div>
                 {% endfor %}
             </div>
@@ -60,6 +52,22 @@
         {% endfor %}
     </div>
     <div class="main-serials-info container-md">
+        <div>
+            {% for season in details.seasons %}
+                <div class="season">
+                    <div class="season-informations">
+                        <p>
+                            {{season.name}} 
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dot" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                            </svg>
+                            Odcinki: <b>{{season.episodes}}</b> ({{details.released[:4]}})
+                        </p>
+                    </div>
+                    <div class="season-description" title="{{season.overview}}" rel="tooltip" data-placement="bottom"><p>{{season.overview}}</p></div>
+                </div>
+            {% endfor %}
+        </div>
         <div class="serial-actors">
             {% for actor in details.actors %}
                 <div class='actor-card'>
